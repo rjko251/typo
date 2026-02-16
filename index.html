@@ -381,139 +381,117 @@
     font-style: italic;
   }
 
-  /* ── Account Form ── */
-  .auth-form { display: flex; flex-direction: column; gap: 10px; }
-
-  .auth-input {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: 'Sora', sans-serif;
-    font-size: 0.8rem;
-    padding: 10px 12px;
-    border-radius: 6px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .auth-input:focus { border-color: var(--accent); }
-  .auth-input::placeholder { color: var(--dim); }
-
-  .auth-btn {
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    font-family: 'Sora', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
-  .auth-btn:hover { opacity: 0.85; }
-
-  .auth-toggle {
-    background: none;
-    border: none;
-    color: var(--dim);
-    font-family: 'Sora', sans-serif;
-    font-size: 0.72rem;
-    cursor: pointer;
-    text-align: center;
-    padding: 4px;
-  }
-
-  .auth-toggle:hover { color: var(--accent); }
-
-  .auth-error {
-    color: var(--wrong);
-    font-size: 0.72rem;
-    text-align: center;
-    min-height: 16px;
-  }
-
-  .auth-logged-in {
+  /* ── Statistics ── */
+  .stats-mode-tabs {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    gap: 4px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
   }
 
-  .auth-user {
-    font-size: 0.85rem;
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .auth-logout {
+  .stats-tab {
     background: none;
     border: 1px solid var(--border);
     color: var(--dim);
     font-family: 'Sora', sans-serif;
-    font-size: 0.75rem;
-    padding: 6px 12px;
-    border-radius: 6px;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
-    width: fit-content;
   }
 
-  .auth-logout:hover { border-color: var(--wrong); color: var(--wrong); }
+  .stats-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .stats-tab.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
 
-  /* ── Statistics ── */
   .stats-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 16px;
   }
 
   .stat-card {
     background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
+    border-radius: 6px;
+    padding: 10px 6px;
     text-align: center;
   }
 
   .stat-val {
     font-family: var(--mono);
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--accent);
   }
 
   .stat-label {
-    font-size: 0.65rem;
+    font-size: 0.58rem;
     color: var(--dim);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
   }
 
-  .stats-recent {
-    margin-top: 12px;
-  }
+  .stats-history { margin-bottom: 14px; }
 
-  .stats-recent-title {
-    font-size: 0.7rem;
+  .stats-history-title {
+    font-size: 0.65rem;
     color: var(--dim);
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 8px;
   }
 
-  .stats-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    font-size: 0.75rem;
-    font-family: var(--mono);
-    border-bottom: 1px solid var(--border);
+  .stats-history-list {
+    max-height: 200px;
+    overflow-y: auto;
   }
 
-  .stats-row span { color: var(--dim); }
-  .stats-row strong { color: var(--text); font-weight: 400; }
+  .stats-history-list::-webkit-scrollbar { width: 4px; }
+  .stats-history-list::-webkit-scrollbar-track { background: transparent; }
+  .stats-history-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .history-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    border-bottom: 1px solid var(--border);
+    gap: 6px;
+  }
+
+  .history-row .h-mode { color: var(--dim); min-width: 36px; }
+  .history-row .h-chars { color: var(--dim); min-width: 32px; }
+  .history-row .h-wpm { color: var(--accent); min-width: 40px; font-weight: 600; }
+  .history-row .h-acc { color: var(--text); min-width: 36px; }
+  .history-row .h-date { color: var(--dim); font-size: 0.6rem; opacity: 0.6; }
+
+  .stats-empty {
+    color: var(--dim);
+    font-size: 0.72rem;
+    opacity: 0.4;
+    font-style: italic;
+    padding: 8px 0;
+  }
+
+  .stats-clear {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--dim);
+    font-family: 'Sora', sans-serif;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.5;
+  }
+
+  .stats-clear:hover { border-color: var(--wrong); color: var(--wrong); opacity: 1; }
 
 </style>
 </head>
@@ -589,25 +567,13 @@
   </div>
   <div class="tray-section">
     <h3>Statistics</h3>
-    <div id="stats-content">
-      <p class="tray-placeholder">log in to track stats</p>
+    <div class="stats-mode-tabs" id="stats-mode-tabs"></div>
+    <div class="stats-grid" id="stats-grid"></div>
+    <div class="stats-history" id="stats-history">
+      <div class="stats-history-title">recent tests</div>
+      <div class="stats-history-list" id="stats-history-list"></div>
     </div>
-  </div>
-  <div class="tray-section">
-    <h3>Account</h3>
-    <div id="account-content">
-      <div class="auth-form" id="auth-form">
-        <input class="auth-input" type="text" id="auth-username" placeholder="username" autocomplete="off">
-        <input class="auth-input" type="password" id="auth-password" placeholder="password" autocomplete="off">
-        <div class="auth-error" id="auth-error"></div>
-        <button class="auth-btn" id="auth-submit">log in</button>
-        <button class="auth-toggle" id="auth-toggle">don't have an account? sign up</button>
-      </div>
-      <div class="auth-logged-in" id="auth-logged-in" style="display:none">
-        <span class="auth-user" id="auth-display-name"></span>
-        <button class="auth-logout" id="auth-logout">log out</button>
-      </div>
-    </div>
+    <button class="stats-clear" id="stats-clear">clear all data</button>
   </div>
 </div>
 
@@ -1023,157 +989,148 @@ document.addEventListener('click', e => {
 buildModeButtons();
 reset();
 
-// ── Auth System ──
-let authToken = localStorage.getItem('typo_token') || null;
-let authUser = localStorage.getItem('typo_user') || null;
-let isSignup = false;
+// ── Statistics System (localStorage) ──
+let testsStarted = parseInt(localStorage.getItem('typo_started') || '0');
+let statsTab = 'all';
 
-const authForm = document.getElementById('auth-form');
-const authLoggedIn = document.getElementById('auth-logged-in');
-const authUsername = document.getElementById('auth-username');
-const authPassword = document.getElementById('auth-password');
-const authSubmit = document.getElementById('auth-submit');
-const authToggleBtn = document.getElementById('auth-toggle');
-const authError = document.getElementById('auth-error');
-const authDisplayName = document.getElementById('auth-display-name');
-
-function showAuthState() {
-  if (authToken && authUser) {
-    authForm.style.display = 'none';
-    authLoggedIn.style.display = 'flex';
-    authDisplayName.textContent = authUser;
-    loadStats();
-  } else {
-    authForm.style.display = 'flex';
-    authLoggedIn.style.display = 'none';
-    document.getElementById('stats-content').innerHTML = '<p class="tray-placeholder">log in to track stats</p>';
-  }
+function getHistory() {
+  try { return JSON.parse(localStorage.getItem('typo_history') || '[]'); }
+  catch { return []; }
 }
 
-authToggleBtn.addEventListener('click', () => {
-  isSignup = !isSignup;
-  authSubmit.textContent = isSignup ? 'sign up' : 'log in';
-  authToggleBtn.textContent = isSignup ? 'already have an account? log in' : "don't have an account? sign up";
-  authError.textContent = '';
-});
+function saveHistory(entry) {
+  const history = getHistory();
+  history.unshift(entry);
+  if (history.length > 50) history.length = 50;
+  localStorage.setItem('typo_history', JSON.stringify(history));
+}
 
-authSubmit.addEventListener('click', async () => {
-  const username = authUsername.value.trim();
-  const password = authPassword.value;
-  authError.textContent = '';
+function trackStart() {
+  testsStarted++;
+  localStorage.setItem('typo_started', testsStarted.toString());
+}
 
-  if (!username || !password) {
-    authError.textContent = 'fill in both fields';
+function formatDate(ts) {
+  const d = new Date(ts);
+  const mon = (d.getMonth() + 1).toString().padStart(2, '0');
+  const day = d.getDate().toString().padStart(2, '0');
+  return mon + '/' + day;
+}
+
+function renderStats() {
+  const history = getHistory();
+  const tabsEl = document.getElementById('stats-mode-tabs');
+  const gridEl = document.getElementById('stats-grid');
+  const listEl = document.getElementById('stats-history-list');
+
+  // Build tabs
+  const modes = [
+    { key: 'all', label: 'All' },
+    { key: 'words-10', label: '10w' },
+    { key: 'words-25', label: '25w' },
+    { key: 'words-50', label: '50w' },
+    { key: 'time-15', label: '15s' },
+    { key: 'time-30', label: '30s' },
+    { key: 'time-60', label: '60s' },
+  ];
+
+  tabsEl.innerHTML = '';
+  modes.forEach(m => {
+    const btn = document.createElement('button');
+    btn.className = 'stats-tab' + (statsTab === m.key ? ' active' : '');
+    btn.textContent = m.label;
+    btn.addEventListener('click', () => { statsTab = m.key; renderStats(); });
+    tabsEl.appendChild(btn);
+  });
+
+  // Filter history
+  const filtered = statsTab === 'all' ? history : history.filter(h => h.mode === statsTab);
+  const completed = filtered.length;
+
+  if (completed === 0) {
+    gridEl.innerHTML = '';
+    listEl.innerHTML = '<div class="stats-empty">no tests yet</div>';
     return;
   }
 
-  const endpoint = isSignup ? '/api/signup' : '/api/login';
+  const bestWpm = Math.max(...filtered.map(h => h.wpm));
+  const avgWpm = Math.round(filtered.reduce((s, h) => s + h.wpm, 0) / completed);
+  const bestAcc = Math.max(...filtered.map(h => h.acc));
+  const avgAcc = Math.round(filtered.reduce((s, h) => s + h.acc, 0) / completed);
 
-  try {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
-    const data = await res.json();
+  // Count started for this filter
+  const startedCount = statsTab === 'all' ? testsStarted : '—';
 
-    if (!res.ok) {
-      authError.textContent = data.error || 'something went wrong';
-      return;
-    }
+  gridEl.innerHTML = `
+    <div class="stat-card"><div class="stat-val">${bestWpm}</div><div class="stat-label">best wpm</div></div>
+    <div class="stat-card"><div class="stat-val">${avgWpm}</div><div class="stat-label">avg wpm</div></div>
+    <div class="stat-card"><div class="stat-val">${bestAcc}%</div><div class="stat-label">best acc</div></div>
+    <div class="stat-card"><div class="stat-val">${avgAcc}%</div><div class="stat-label">avg acc</div></div>
+    <div class="stat-card"><div class="stat-val">${startedCount}</div><div class="stat-label">started</div></div>
+    <div class="stat-card"><div class="stat-val">${completed}</div><div class="stat-label">completed</div></div>
+  `;
 
-    authToken = data.token;
-    authUser = data.username;
-    localStorage.setItem('typo_token', authToken);
-    localStorage.setItem('typo_user', authUser);
-    authUsername.value = '';
-    authPassword.value = '';
-    showAuthState();
-  } catch (err) {
-    authError.textContent = 'connection error';
-  }
-});
-
-document.getElementById('auth-logout').addEventListener('click', () => {
-  authToken = null;
-  authUser = null;
-  localStorage.removeItem('typo_token');
-  localStorage.removeItem('typo_user');
-  showAuthState();
-});
-
-// ── Score Saving ──
-async function saveScore(wpm, accuracy, errs, gMode, modeVal, duration) {
-  if (!authToken) return;
-  try {
-    await fetch('/api/scores', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + authToken
-      },
-      body: JSON.stringify({
-        wpm, accuracy, errors: errs,
-        gameMode: gMode, modeValue: modeVal, duration
-      })
-    });
-  } catch (e) { /* silent fail */ }
+  // Recent 10
+  const recent = filtered.slice(0, 10);
+  listEl.innerHTML = '';
+  recent.forEach(h => {
+    const row = document.createElement('div');
+    row.className = 'history-row';
+    const modeLabel = h.mode.replace('words-', '').replace('time-', '') + (h.mode.startsWith('time') ? 's' : 'w');
+    row.innerHTML = `
+      <span class="h-mode">${modeLabel}</span>
+      <span class="h-chars">${h.chars}</span>
+      <span class="h-wpm">${h.wpm}</span>
+      <span class="h-acc">${h.acc}%</span>
+      <span class="h-date">${formatDate(h.date)}</span>
+    `;
+    listEl.appendChild(row);
+  });
 }
 
-// Patch showResults to save scores
+// Patch showResults to save score
 const _origShowResults = showResults;
 showResults = function() {
   _origShowResults();
-  // Extract values from the results we just rendered
   const elapsed = gameMode === 'time' ? timeLimit : (Date.now() - startTime) / 1000;
   const typed = currentText.substring(0, charIndex);
   const wordsTyped = typed.split(' ').filter(w => w.length > 0).length;
   const wpm = Math.round((wordsTyped / elapsed) * 60);
   const acc = charIndex > 0 ? Math.round(((charIndex - errorSet.size) / charIndex) * 100) : 100;
   const modeVal = gameMode === 'words' ? wordCount : timeLimit;
-  saveScore(wpm, acc, errors, gameMode, modeVal, parseFloat(elapsed.toFixed(1)));
+  const modeKey = gameMode + '-' + modeVal;
+
+  saveHistory({
+    mode: modeKey,
+    chars: charIndex,
+    wpm: wpm,
+    acc: acc,
+    errors: errors,
+    duration: parseFloat(elapsed.toFixed(1)),
+    date: Date.now()
+  });
+  renderStats();
 };
 
-// ── Load Stats ──
-async function loadStats() {
-  if (!authToken) return;
-  const container = document.getElementById('stats-content');
+// Patch reset to track starts
+const _origReset = reset;
+reset = function() {
+  _origReset();
+  // Only count as started if it's a fresh test (not the initial load)
+  if (document.hasFocus()) trackStart();
+};
 
-  try {
-    const res = await fetch('/api/scores', {
-      headers: { 'Authorization': 'Bearer ' + authToken }
-    });
-    const data = await res.json();
-
-    if (!res.ok) {
-      container.innerHTML = '<p class="tray-placeholder">could not load stats</p>';
-      return;
-    }
-
-    const o = data.overall;
-    let html = '<div class="stats-grid">';
-    html += `<div class="stat-card"><div class="stat-val">${o.total_tests || 0}</div><div class="stat-label">tests</div></div>`;
-    html += `<div class="stat-card"><div class="stat-val">${o.best_wpm || 0}</div><div class="stat-label">best wpm</div></div>`;
-    html += `<div class="stat-card"><div class="stat-val">${o.avg_wpm || 0}</div><div class="stat-label">avg wpm</div></div>`;
-    html += `<div class="stat-card"><div class="stat-val">${o.avg_acc || 0}%</div><div class="stat-label">avg acc</div></div>`;
-    html += '</div>';
-
-    if (data.recent.length > 0) {
-      html += '<div class="stats-recent"><div class="stats-recent-title">recent</div>';
-      data.recent.slice(0, 8).forEach(s => {
-        const mode = s.game_mode === 'words' ? s.mode_value + 'w' : s.mode_value + 's';
-        html += `<div class="stats-row"><span>${mode}</span><strong>${s.wpm} wpm</strong><span>${s.accuracy}%</span></div>`;
-      });
-      html += '</div>';
-    }
-
-    container.innerHTML = html;
-  } catch (e) {
-    container.innerHTML = '<p class="tray-placeholder">could not load stats</p>';
+// Clear data
+document.getElementById('stats-clear').addEventListener('click', () => {
+  if (confirm('Clear all statistics?')) {
+    localStorage.removeItem('typo_history');
+    localStorage.removeItem('typo_started');
+    testsStarted = 0;
+    renderStats();
   }
-}
+});
 
-showAuthState();
+renderStats();
 </script>
 </body>
 </html>
